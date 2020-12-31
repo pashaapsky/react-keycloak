@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {ReactKeycloakProvider} from '@react-keycloak/web';
+import store from "./store/store";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import keycloak from "./keycloak";
+import {Provider} from "react-redux";
+import "normalize.css"
+import "./scss/default.scss"
 
 ReactDOM.render(
     <ReactKeycloakProvider authClient={keycloak}>
-        <App/>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+
     </ReactKeycloakProvider>
     ,
     document.getElementById('root')

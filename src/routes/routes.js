@@ -1,7 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useKeycloak } from '@react-keycloak/web';
-import Menu from '../pages/Menu';
 import Home from '../pages/Home';
 import { PrivateRoute } from '../utilities/PrivateRoute';
 import ProtectedPage from '../pages/ProtectedPage';
@@ -14,8 +13,6 @@ export const AppRouter = () => {
     }
 
     return (<>
-            <Menu />
-
             <Router>
                 <Switch>
                     <Route exact path="/" component={Home} />

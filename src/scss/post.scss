@@ -1,0 +1,45 @@
+.posts-section {
+  margin-bottom: 20px;
+}
+
+.async-posts-section, .posts-section {
+  padding: 10px 20px;
+  border: 1px solid black;
+}
+
+.posts {
+  display: flex;
+
+  margin-bottom: 20px;
+}
+
+.async-posts {
+  display: flex;
+
+  overflow-x: auto;
+}
+
+.post {
+  flex: 0 0 24%;
+  width: 24%;
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255, 0.3);
+
+  background-color: #3d5af1;
+
+  padding: 10px;
+
+  box-shadow: 0px 0px 5px darkblue;
+  margin-right: 1.2%;
+
+  &__attributes {
+
+  }
+}
+
+.btn--post-delete {
+  align-self: end;
+}

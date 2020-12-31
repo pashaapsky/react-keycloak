@@ -1,0 +1,55 @@
+html
+{
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+*,
+*::before,
+*::after
+{
+  box-sizing: inherit;
+}
+
+body
+{
+  font-family: "Roboto", "Arial", sans-serif;
+  line-height: normal;
+  min-width: 320px;
+
+  margin: 0;
+
+  color: #000;
+  background-color: #e2f3f5;
+  min-height: 100vh;
+}
+
+body.modal-active
+{
+  overflow: hidden;
+}
+
+img
+{
+  max-width: 100%;
+}
+
+a
+{
+  text-decoration: none;
+
+  color: inherit;
+}
+
+.fixed-container {
+  width: 100%;
+  max-width: 1300px;
+  height: auto;
+
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.bg-blue {
+  background-color: #22d1ee;
+}

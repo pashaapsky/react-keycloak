@@ -1,0 +1,28 @@
+.error {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+
+  width: fit-content;
+
+  border-radius: 5px;
+  padding: 10px 15px;
+
+  transform: translate(-50%, 50%);
+
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+
+  background-color: #3d5af1;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
+  &__btn {
+
+  }
+}
