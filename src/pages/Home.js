@@ -1,10 +1,8 @@
 import React, {Fragment} from 'react';
 import { useKeycloak } from '@react-keycloak/web';
-import Posts from "../containers/Posts";
 import Header from "../containers/Header";
-import AsyncPosts from "../containers/AsyncPosts";
-// import AuthElement from '../components/AuthElement';
-import "../scss/post.scss"
+import '../scss/home.scss';
+
 
 const Home = () => {
     const {keycloak, initialized} = useKeycloak();
@@ -16,15 +14,19 @@ const Home = () => {
         <Fragment>
             <Header />
 
-            {initialized ?
-                keycloak.authenticated && <pre >{JSON.stringify(keycloak, undefined, 2)}</pre>
-                : <h2>keycloak initializing ....!!!!</h2>
-            }
+            <section className="home">
+                <div className="fixed-container">
+                    <div className="home__content">
 
-            <div className="fixed-container">
-                <Posts />
-                <AsyncPosts />
-            </div>
+                    </div>
+                </div>
+            </section>
+
+            {/*{initialized ?*/}
+            {/*    keycloak.authenticated && <pre >{JSON.stringify(keycloak, undefined, 2)}</pre>*/}
+            {/*    : <h2>keycloak initializing ....!!!!</h2>*/}
+            {/*}*/}
+
         </Fragment>
     )
 };

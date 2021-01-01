@@ -6,8 +6,6 @@ import "../scss/error.scss";
 const Error = () => {
     const errors = useSelector(state => state.app.errors);
 
-    console.log('eerors', errors);
-
     const dispatch = useDispatch();
 
     const handleClose = (event) => {

@@ -1,25 +1,27 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useKeycloak } from '@react-keycloak/web';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import Home from '../pages/Home';
-import { PrivateRoute } from '../utilities/PrivateRoute';
+import {PrivateRoute} from './PrivateRoute';
 import ProtectedPage from '../pages/ProtectedPage';
+import Profile from "../pages/Profile";
+import RegisterRoute from "./RegisterRouter";
 
 export const AppRouter = () => {
-    const {keycloak, initialized} = useKeycloak();
+    return (
+        <Router>
+            <Switch>
+                <Route exact path="/">
+                    <Home/>
+                </Route>
 
-    if (!initialized) {
-        return <h3>Loading ... !!!</h3>;
-    }
+                <RegisterRoute exact path="/profile">
+                    <Profile/>
+                </RegisterRoute>
 
-    return (<>
-            <Router>
-                <Switch>
-                    <Route exact path="/" component={Home} />
+                <PrivateRoute roles={['RealmAdmin']} path="/protected" component={ProtectedPage}/>
 
-                    <PrivateRoute roles={['RealmAdmin']} path="/protected" component={ProtectedPage} />
-                </Switch>
-            </Router>
-        </>
+                <Redirect to="/" />
+            </Switch>
+        </Router>
     );
 };

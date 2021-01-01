@@ -1,12 +1,46 @@
 .nav {
+
+}
+
+.menu {
   display: flex;
   justify-content: space-between;
   place-items: center;
-  padding: 10px 0 ;
+
+  padding: 10px 0;
 
   background-color: #e2f3f5;
+}
 
-  //border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 
-  box-shadow: -5px -10px 5px rgba(0,0,0, 0.3);
+.nav-link {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  transition: background-color 0.3s linear;
+
+  margin-right: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.active {
+    background-color: rgba(61, 90, 241, 0.3);
+  }
+
+  &:hover {
+    background-color: rgba(61, 90, 241, 0.8);
+  }
+}
+
+.nav-btn {
+  transition: background-color 0.3s linear;
+  border-radius: 5px;
+  padding: 5px;
+
+  &:hover {
+    background-color: rgba(61, 90, 241, 0.8);
+  }
 }

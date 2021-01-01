@@ -10,18 +10,48 @@ const NavBar = () => {
     return (
         <nav className="nav">
             <div className="fixed-container">
-                <NavLink className="link" to="/">Home Page </NavLink>
+                <div className="menu">
+                    <div className="menu-left">
+                        <NavLink exact className="nav-link" to="/">Home</NavLink>
 
-                {AuthFunction(['RealmAdmin']) && <NavLink href="/protected">Protected Page</NavLink>}
+                        {AuthFunction(['uma_authorization']) && (
+                            <NavLink className="nav-link" to="/profile">
+                                {keycloak.tokenParsed.preferred_username}
+                            </NavLink>
+                        )}
+                    </div>
 
-                {keycloak && !keycloak.authenticated &&
-                <button onClick={() => keycloak.login()}>Login</button>}
+                    {AuthFunction(['RealmAdmin']) && <NavLink to="/protected">Protected Page</NavLink>}
 
-                {keycloak && keycloak.authenticated &&
-                <button onClick={() => keycloak.logout()}>Logout ({
-                    keycloak.tokenParsed.preferred_username
-                })</button>
-                }
+                    {keycloak && !keycloak.authenticated && (
+                        <button
+                            className="nav-btn"
+                            style={{marginLeft: "auto"}}
+                            onClick={() => keycloak.login({
+                                redirectUri: `http://localhost:3000/profile`
+                            })}>
+                            Login
+                        </button>
+                    )}
+
+                    {keycloak && !keycloak.authenticated && (
+                        <button
+                            className="nav-btn"
+                            onClick={() => keycloak.register()}>
+                            Register
+                        </button>
+                    )}
+
+                    {keycloak && keycloak.authenticated && (
+                        <button
+                            className="nav-btn"
+                            onClick={() => keycloak.logout({
+                                redirectUri: `http://localhost:3000/`
+                            })}>
+                            Logout ({keycloak.tokenParsed.preferred_username})
+                        </button>
+                    )}
+                </div>
             </div>
         </nav>
     )

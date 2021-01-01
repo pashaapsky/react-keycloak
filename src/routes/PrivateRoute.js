@@ -22,7 +22,7 @@ export function PrivateRoute({component: Component, roles, ...rest}) {
             render={props => {
                 return isAuth(roles)
                     ? <Component {...props} />
-                    : <Redirect to={{pathname: '/',}}/>
+                    : <Redirect to={{pathname: '/'}}/>
             }}
         />
     )

@@ -14,7 +14,6 @@ ReactDOM.render(
         <Provider store={store}>
             <App/>
         </Provider>
-
     </ReactKeycloakProvider>
     ,
     document.getElementById('root')
